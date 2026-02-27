@@ -40,17 +40,34 @@
             z-index: -1;
         }
 
-        /* Electric Storm Header */
+        /* Pure Electric Header (Replaced Hytale Image) */
         header {
             height: 250px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2), var(--dark-bg)),
-                        url('https://hytale.com/static/images/media/screenshots/11.jpg') center/cover;
+            background: linear-gradient(135deg, #000000 0%, #06111a 50%, #000000 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             border-bottom: 2px solid var(--electric-blue);
             box-shadow: 0 0 20px var(--electric-glow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Adding a subtle glow pulse to header */
+        header::after {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 242, 255, 0.05) 0%, transparent 70%);
+            animation: pulse 8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 0.5; }
         }
 
         header h1 {
@@ -61,6 +78,7 @@
             letter-spacing: 5px;
             text-shadow: 0 0 15px var(--electric-blue);
             margin: 0;
+            z-index: 1;
         }
 
         /* Main Container */
@@ -75,11 +93,7 @@
             position: relative;
         }
 
-        /* Navigation */
-        .back-nav {
-            margin-bottom: 20px;
-        }
-
+        .back-nav { margin-bottom: 20px; }
         .back-nav a {
             color: var(--electric-blue);
             text-decoration: none;
@@ -90,14 +104,12 @@
             padding: 8px 15px;
             transition: 0.3s;
         }
-
         .back-nav a:hover {
             background: var(--electric-blue);
             color: black;
             box-shadow: 0 0 15px var(--electric-blue);
         }
 
-        /* Markdown Styling */
         #content h1, #content h2, #content h3 {
             font-family: 'Orbitron', sans-serif;
             color: var(--electric-blue);
@@ -113,13 +125,11 @@
             transition: 0.3s;
             border-bottom: 1px dashed var(--electric-blue);
         }
-
         #content a:hover {
             text-shadow: 0 0 8px var(--electric-blue);
             border-bottom: 1px solid var(--electric-blue);
         }
 
-        /* List Styling */
         ul { list-style: none; padding-left: 20px; }
         ul li::before {
             content: "⚡";
@@ -129,7 +139,6 @@
             margin-left: -1.5em;
         }
 
-        /* Footer & Licenses */
         footer {
             margin-top: 50px;
             padding: 20px;
@@ -137,7 +146,6 @@
             font-size: 0.85rem;
             color: #888;
         }
-
         .license-box {
             background: rgba(0, 242, 255, 0.05);
             padding: 15px;
